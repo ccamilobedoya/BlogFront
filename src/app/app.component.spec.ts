@@ -23,13 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'BlogFrontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('BlogFrontend');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('BlogFrontend app is running!');
+    expect(app.title).toEqual('Cristian`s Blog');
   });
 });
