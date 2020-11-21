@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BasePost } from 'src/app/interfaces/base-post';
+import { PaginatedBasePost } from 'src/app/interfaces/paginated-base-post';
+import { PaginatedSummaryPost } from 'src/app/interfaces/paginated-summary-post';
 import { SummaryPost } from 'src/app/interfaces/summary-post';
 import { PostService } from '../../services/post.service';
 
@@ -11,12 +14,14 @@ import { PostService } from '../../services/post.service';
 })
 export class PostSummaryComponent implements OnInit {
 
-  summaryPostsObs: Observable<SummaryPost[]>;
+  paginatedPostsObs: Observable<PaginatedBasePost>;
+  paginatedSummaryPostsObs: Observable<PaginatedSummaryPost>;
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.summaryPostsObs = this.postService.getSummaryPosts();
+    this.paginatedPostsObs = this.postService.getPaginatedPosts();
+    this.paginatedSummaryPostsObs = this.postService.getPaginatedSummaryPosts();
   }
 
 }
